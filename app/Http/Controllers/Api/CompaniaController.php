@@ -22,6 +22,16 @@ class CompaniaController extends Controller
         ]);
     }
 
+    public function obtenerConPaginacion()
+    {
+        //
+        $companias = Compania::paginate(5);
+        return response()->json([
+            'estado' => true,
+            'companias' => $companias
+        ]);
+    }
+
     // Obtener compania
     public function obtenerCompania($compania)
     {

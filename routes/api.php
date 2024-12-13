@@ -10,12 +10,30 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::prefix('v1')->group(function () {
-    // Obterner todas las companias
-    Route::get('/companias', [CompaniaController::class, 'obtenerCompanias']);
 
-    // Obterner Compania por parametro
-    Route::get('/compania/{compania}', [CompaniaController::class, 'obtenerCompania']);
+    // Grupo de Rutas Pertenecientes a companias
+    Route::prefix('companias')->group(function () {
 
-    // Obterner todas las Perosnales
-    Route::get('/personales', [PersonalController::class, 'obtenerPersonales']);
+        // Obterner todas las companias
+        Route::get('/', [CompaniaController::class, 'obtenerCompanias']);
+
+        // Obterner todas las companias con paginacion
+        Route::get('/obtenerConPaginacion', [CompaniaController::class, 'obtenerCompanias']);
+
+        // Obterner Compania por parametro
+        Route::get('/{compania}', [CompaniaController::class, 'obtenerCompania']);
+    });
+
+    // Grupo de Rutas Pertenecientes a Personales
+    Route::prefix('personales')->group(function () {
+
+        // Obterner todas las Perosnales
+        Route::get('/', [PersonalController::class, 'obtenerPersonales']);
+
+        // Obterner Personal por Documento
+        Route::get('/obtenerPorDocumento/{documeto}', [PersonalController::class, 'obtenerPorDocumento']);
+
+        // Obterner Personal por codigo
+        Route::get('/obtenerPorCodigo/{codigo}', [PersonalController::class, 'obtenerPorCodigo']);
+    });
 });

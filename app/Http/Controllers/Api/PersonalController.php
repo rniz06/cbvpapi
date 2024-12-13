@@ -15,10 +15,30 @@ class PersonalController extends Controller
     public function obtenerPersonales()
     {
         //
-        $personales = Personal::all();
+        $personales = Personal::select('nombrecompleto', 'codigo', 'documento', 'fecha_juramento', 'categoria', 'estado', 'pais', 'sexo', 'compania')->get();
         return response()->json([
             'estado' => true,
             'personales' => $personales
+        ]);
+    }
+
+    public function obtenerPorDocumento($documento)
+    {
+        //
+        $personal = Personal::select('nombrecompleto', 'codigo', 'documento', 'fecha_juramento', 'categoria', 'estado', 'pais', 'sexo', 'compania')->where('documento', $documento)->first();
+        return response()->json([
+            'estado' => true,
+            'personal' => $personal
+        ]);
+    }
+
+    public function obtenerPorCodigo($codigo)
+    {
+        //
+        $personal = Personal::select('nombrecompleto', 'codigo', 'documento', 'fecha_juramento', 'categoria', 'estado', 'pais', 'sexo', 'compania')->where('codigo', $codigo)->first();
+        return response()->json([
+            'estado' => true,
+            'personal' => $personal
         ]);
     }
 
