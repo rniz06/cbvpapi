@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class PersonalController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Obtener listado completo de personales.
      */
 
     public function obtenerPersonales()
@@ -22,6 +22,10 @@ class PersonalController extends Controller
         ]);
     }
 
+    /**
+     * Obtener un personal por el parametro documento.
+     */
+
     public function obtenerPorDocumento($documento)
     {
         //
@@ -32,6 +36,10 @@ class PersonalController extends Controller
         ]);
     }
 
+    /**
+     * Obtener un personal por el parametro codigo (Codigo de bombero).
+     */
+    
     public function obtenerPorCodigo($codigo)
     {
         //

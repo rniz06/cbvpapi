@@ -18,7 +18,7 @@ Route::prefix('v1')->group(function () {
         Route::get('/', [CompaniaController::class, 'obtenerCompanias']);
 
         // Obterner todas las companias con paginacion
-        Route::get('/obtenerConPaginacion', [CompaniaController::class, 'obtenerCompanias']);
+        Route::get('/obtenerConPaginacion', [CompaniaController::class, 'obtenerConPaginacion']);
 
         // Obterner Compania por parametro
         Route::get('/{compania}', [CompaniaController::class, 'obtenerCompania']);

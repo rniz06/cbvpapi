@@ -15,7 +15,7 @@ class CompaniaController extends Controller
     public function obtenerCompanias()
     {
         //
-        $companias = Compania::all();
+        $companias = Compania::orderBy('orden', 'asc')->get();
         return response()->json([
             'estado' => true,
             'companias' => $companias
