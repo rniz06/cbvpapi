@@ -30,6 +30,9 @@ Route::prefix('v1')->group(function () {
         // Obterner todas las Perosnales
         Route::get('/', [PersonalController::class, 'obtenerPersonales']);
 
+        // Obterner todas las companias con paginacion
+        Route::get('/obtenerConPaginacion', [PersonalController::class, 'obtenerConPaginacion']);
+
         // Obterner Personal por Documento
         Route::get('/obtenerPorDocumento/{documeto}', [PersonalController::class, 'obtenerPorDocumento']);
 

@@ -15,21 +15,15 @@ class CompaniaController extends Controller
     public function obtenerCompanias()
     {
         //
-        $companias = Compania::orderBy('orden', 'asc')->get();
-        return response()->json([
-            'estado' => true,
-            'companias' => $companias
-        ]);
+        $companias = Compania::select('idcompanias', 'compania', 'departamento', 'ciudad', 'orden')->orderBy('orden', 'asc')->get();
+        return response()->json($companias);
     }
 
     public function obtenerConPaginacion()
     {
         //
         $companias = Compania::paginate(5);
-        return response()->json([
-            'estado' => true,
-            'companias' => $companias
-        ]);
+        return response()->json($companias);
     }
 
     // Obtener compania
