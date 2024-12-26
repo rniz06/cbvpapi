@@ -32,7 +32,6 @@ class CompaniaController extends Controller
         //
         $compania = Compania::where('compania', $compania)->first();
         return response()->json([
-            'estado' => true,
             'compania' => $compania->compania,
             'departamento' => $compania->departamento,
             'ciudad' => $compania->ciudad,
