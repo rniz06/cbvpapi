@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\CompaniaController;
 use App\Http\Controllers\Api\PersonalController;
+use App\Http\Controllers\ApiV1\ResolucionV1Controller;
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -31,3 +32,9 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::get('/obtenerPorCodigo/{codigo}', 'obtenerPorCodigo');
         });
 });
+
+Route::prefix('v1/resoluciones')
+    ->controller(ResolucionV1Controller::class)
+    ->group(function () {
+        Route::get('/cantidad', 'cantidad');
+    });
