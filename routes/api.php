@@ -37,4 +37,5 @@ Route::prefix('v1/resoluciones')
     ->controller(ResolucionV1Controller::class)
     ->group(function () {
         Route::get('/cantidad', 'cantidad');
+        Route::get('/cantidadPorDiaSemanaMesAnho', 'cantidadPorDiaSemanaMesAnho');
     });
