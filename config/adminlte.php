@@ -318,7 +318,7 @@ return [
         [
             'icon' => 'fas fa-users',
             'text' => 'Usuarios',
-            'url' => '#',
+            'url' => '/usuarios',
             //'can' => 'manage-blog',
         ],
         // [
